@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <title>AJAX example</title>
+    <script
+      rel="javascript"
+      type="text/javascript"
+      href="js/jquery-1.11.3.min.js"
+      src="https://code.jquery.com/jquery-1.11.3.min.js"
+    ></script>
+  </head>
+  <body>
+    <h1>AJAX Request with JavaScript</h1>
+    <input
+      oninput="onInputHandler()"
+      id="text"
+      style="width: 15rem"
+      type="text"
+      placeholder="JavaScript"
+      autocomplete="off"
+    />
+    <button id="mybutton" onclick="onClickHandler()">Send Comment</button>
+    <h1>Get comment: <span id="comment"></span></h1>
+    <div
+      id="container"
+      style="background-color: aquamarine; width: 50%; height: 50%"
+    ></div>
+    <script>
+      const text = document.getElementById("text");
+      const comment = document.getElementById("comment");
+      const myMessages = [];
+
+      function onInputHandler() {
+        comment.textContent = text.value;
+      }
+      function onClickHandler() {
+        if (text.value != "") {
+          myMessages.push(text.value);
+          localStorage.setItem("Message", myMessages);
+          text.value = "";
+          comment.textContent = "";
+          getMessages();
+        }
+      }
+
+      function getMessages() {
+        // Calling Ajax :
+        // var xhttp = new XMLHttpRequest();
+        // //xhttp.open("GET", "ajax.info.txt", true);
+        // xhttp.open("GET", "http://127.0.0.1:5500", true);
+        // xhttp.send();
+        // xhttp.onreadystatechange = function () {
+        //   if (this.readyState == 4 && this.status == 200) {
+        //     document.getElementById("container").innerHTML = this.responseText;
+        //   } else {
+        //     window.alert("noooo thing aaaaaa!!!");
+        //   }
+        // };
+      }
+    </script>
+  </body>
+</html>
